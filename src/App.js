@@ -13,9 +13,9 @@ class App extends Component {
         <Logo />
         </header>
         <InputNumber />
-        <NumberDisplay base={"Decimal"} converted={123}/>
-        <NumberDisplay base={"Decimal"} converted={123}/>
-        <NumberDisplay base={"Decimal"} converted={123}/>
+        <NumberDisplay base={"Decmial"} converted={123}/>
+        <NumberDisplay base={"Two's Complement (Signed) Decimal"} converted={-1245}/>
+        <NumberDisplay base={"Hexadecimal"} converted={"0x1809"}/>
       </div>
     );
   }
