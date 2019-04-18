@@ -16,7 +16,6 @@ class App extends Component {
     }
 
     onInputChange = (event) => {
-        console.log("RUNNING")
         this.setState({
             input: event.target.value,
         })
@@ -29,7 +28,13 @@ class App extends Component {
     }
 
     toBinary (input) {
-        
+        if(this.state.inputType === "decimal") {
+            return "0b" + parseInt(input).toString(2);
+        } else if (this.state.inputType === "hexadecimal") {
+            return "0b" + parseInt(input).toString(16)
+        } else {
+            return "0b" + input;
+        }
     }
 
     toDecimal (input) {
@@ -42,6 +47,17 @@ class App extends Component {
         }
     }
 
+    toHexadecimal (input) {
+        if(this.state.inputType === "binary") {
+            return "0x" + parseInt(input,2).toString(16);
+        } else if (this.state.inputType === "decimal") {
+            return "0x" + parseInt(input).toString(16);
+        } else {
+            return "0x" + input;
+        }
+    }
+
+
   render() {
     return (
       <div className="App">
@@ -49,10 +65,10 @@ class App extends Component {
         <Logo />
         </header>
         <InputNumber onInputChange = {this.onInputChange} onInputTypeChange={this.onInputTypeChange}/>
-        <NumberDisplay base={"Binary"} converted={this.toDecimal(this.state.input)}/>
+        <NumberDisplay base={"Binary"} converted={this.toBinary(this.state.input)}/>
         <NumberDisplay base={"Decmial"} converted={this.toDecimal(this.state.input)}/>
-        <NumberDisplay base={"Two's Complement (Signed) Decimal"} converted={-1245}/>
-        <NumberDisplay base={"Hexadecimal"} converted={"0x1809"}/>
+        <NumberDisplay base={"Hexadecimal"} converted={this.toHexadecimal(this.state.input)}/>
+        <NumberDisplay base={"Two's Complement (Signed) Decimal"} converted={this.state.input}/>
       </div>
     );
   }

@@ -5,7 +5,7 @@ class NumberDisplay extends React.Component {
         return (
             <div>
                 <p className="NumberDisplay">{this.props.base}</p>
-                <h1 className="NumberDisplay">{this.props.converted}</h1>
+                <h1 className="NumberDisplay f3 link dim black underline pa3 pointer">{this.props.converted}</h1>
             </div>
         )
     }

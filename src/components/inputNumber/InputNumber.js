@@ -1,5 +1,6 @@
 import React from 'react';
-// import './InputNumber.css';
+import './InputNumber.css';
+
 class InputNumber extends React.Component {
     render() {
         return (
@@ -10,7 +11,7 @@ class InputNumber extends React.Component {
                         <option value="decimal">decimal</option>
                         <option value="hexadecimal"> hexadecimal</option>
                     </select>
-                    <input type='text' onChange={this.props.onInputChange}/>
+                    <input type='text' onChange={this.props.onInputChange}/>    
                 </div>
 
             </div>
